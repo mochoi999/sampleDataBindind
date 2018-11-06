@@ -13,7 +13,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private List<Item> items;
 
     public RecyclerAdapter(List<Item> items) {
-        this.items = items;
+        replaceData(items);
     }
 
     @Override
@@ -36,7 +36,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return items.size();
+        if(items == null){
+            return 0;
+        } else {
+            return items.size();
+        }
     }
 
     public void replaceData(List<Item> items) {

@@ -14,31 +14,27 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SampleViewModel {//extends BaseObservable {
+public class SampleViewModel {
 
     public final ObservableField<List<Item>> items = new ObservableField<>();
-//    public List<Item> items = new ArrayList<>();
 
-    public void setItems(List<Item> items){
+    public void setListData(){
+        //TODO model
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("Item1","memooooo"));
+        items.add(new Item("Item2","AAAA"));
+        items.add(new Item("Item3",""));
+        items.add(new Item("Item4","NNNN"));
+        items.add(new Item("Item5",""));
         this.items.set(items);
     }
 
-    @BindingAdapter("app:items")
-    public static void setItems(RecyclerView listView, List<Item> items) {
-        RecyclerAdapter adapter = (RecyclerAdapter)     listView.getAdapter();
-        if (adapter != null)
-        {
-            Log.d("TEST","replaceData(items)@@@@@@@@@@");
-//            for (Item i:
-//                    items) {
-//                Log.d("TEST","---"+i.name);
-//            }
-
-            adapter.replaceData(items);
-        } else {
-            Log.d("TEST","NULL@@@@@@@@@@");
-            adapter = new RecyclerAdapter(items);
-            listView.setAdapter(adapter);
-        }
+    public void setListXXXData(){
+        //TODO model
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("ああああ","memooooo"));
+        items.add(new Item("ああああいいいい","AAAA"));
+        items.add(new Item("ううううう","NNNN"));
+        this.items.set(items);
     }
 }
